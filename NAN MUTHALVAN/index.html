@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple News Feed</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #1e90ff;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 20px auto;
+    }
+
+    .news-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+
+    .news-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .news-card h2 {
+      color: #333;
+      margin: 10px 0;
+    }
+
+    .news-card p {
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #1e90ff;
+      color: white;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0073e6;
+    }
+  </style>
+</head>
+<body>
+
+  <header>🌍 Daily News Feed</header>
+
+  <div class="container" id="news-container">
+    <!-- News articles will appear here -->
+  </div>
+
+  <div style="text-align:center;">
+    <button onclick="addNews()">Add Random News</button>
+  </div>
+
+  <footer>© 2025 Daily News Feed | Created by You</footer>
+
+  <script>
+    const newsContainer = document.getElementById("news-container");
+
+    const newsList = [
+      {
+        title: "Solar Energy Usage Rises in 2025",
+        content: "More countries are turning to renewable energy sources like solar and wind to combat climate change.",
+        img: "https://source.unsplash.com/900x400/?solar,energy"
+      },
+      {
+        title: "AI Revolutionizes Healthcare",
+        content: "Artificial intelligence is helping doctors predict diseases earlier than ever before.",
+        img: "https://source.unsplash.com/900x400/?health,technology"
+      },
+      {
+        title: "Mars Mission 2025 Launch Successful",
+        content: "NASA successfully launched the Mars Odyssey 2025 mission, marking another milestone in space exploration.",
+        img: "https://source.unsplash.com/900x400/?space,mars"
+      }
+    ];
+
+    function addNews() {
+      const randomNews = newsList[Math.floor(Math.random() * newsList.length)];
+      const card = document.createElement("div");
+      card.className = "news-card";
+      card.innerHTML = `
+        <img src="${randomNews.img}" alt="News Image">
+        <h2>${randomNews.title}</h2>
+        <p>${randomNews.content}</p>
+      `;
+      newsContainer.prepend(card);
+    }
+
+    // Load one article at start
+    addNews();
+  </script>
+
+</body>
+</html>
